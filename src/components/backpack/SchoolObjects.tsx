@@ -1,0 +1,13 @@
+import { BackpackItem } from './BackpackItem';
+import type { User } from '../../services/auth/auth.types';
+export type ToolPanel = 'profile' | 'favorites' | 'news' | 'visits' | 'facts' | 'rating';
+export function SchoolObjects({ user, favoriteCount, onOpen }: { user: User; favoriteCount: number; onOpen: (panel: ToolPanel) => void }) {
+  return <div className="school-objects">
+    <BackpackItem label="Carné estudiantil: perfil de la cuenta" help="Perfil, acerca de y sesión" className="student-card" onActivate={() => onOpen('profile')}><span className="card-label">CARNÉ ESTUDIANTIL</span><span className="card-content"><span className="avatar" aria-hidden="true">AM</span><span><strong>{user.name}</strong><small>Cuenta de demostración</small><span className="card-code" aria-hidden="true">▥ ▥ ▥ ▥ ▥</span></span></span></BackpackItem>
+    <BackpackItem label="Marcadores: favoritos" help="Tus recursos guardados" className="bookmark-object" onActivate={() => onOpen('favorites')}><span aria-hidden="true" className="ribbons"><i/><i/><i/></span><strong>Favoritos</strong><small>{favoriteCount} {favoriteCount === 1 ? 'recurso guardado' : 'recursos guardados'}</small></BackpackItem>
+    <BackpackItem label="Libreta: noticias destacadas" help="Leé las novedades de ejemplo" className="news-object" onActivate={() => onOpen('news')}><span className="spiral" aria-hidden="true">○ ○ ○ ○ ○</span><span className="tool-kicker">PARA ESTAR AL DÍA</span><strong>Noticias</strong><span aria-hidden="true" className="paper-lines"/></BackpackItem>
+    <BackpackItem label="Tablet: sitios más visitados" help="Consultá tus visitas locales" className="tablet-object" onActivate={() => onOpen('visits')}><span className="tablet-screen"><span className="tool-kicker">TU RECORRIDO</span><strong>Más visitados</strong><span className="chart" aria-hidden="true"><i/><i/><i/><i/></span></span></BackpackItem>
+    <BackpackItem label="Libro: Sabías que…" help="Descubrí algo nuevo" className="fact-object" onActivate={() => onOpen('facts')}><span className="tool-kicker">UNA DOSIS DE CURIOSIDAD</span><span aria-hidden="true" className="fact-symbol">?</span><strong>Sabías que…</strong></BackpackItem>
+    <BackpackItem label="Smartphone: Califícame" help="Probá la valoración simulada" className="phone-object" onActivate={() => onOpen('rating')}><span className="phone-screen"><span className="phone-speaker" aria-hidden="true"/><span aria-hidden="true" className="rating-star">★</span><strong>Califícame</strong><small>Tu opinión cuenta</small><span className="phone-dot" aria-hidden="true"/></span></BackpackItem>
+  </div>;
+}

@@ -1,0 +1,11 @@
+:root { --accent-ink:#4d2864; --focus:#007a78; }
+[data-theme="dark"] { color-scheme:dark; --page:#201b25; --surface:#2c2433; --color-text:#f8f4fa; --muted:#ccc0d2; --border:#766980; --accent-ink:#e5b9f3; --focus:#45d4c7; }
+.brand-mark,.eyebrow { color:var(--accent-ink); }
+a { color:var(--accent-ink); }
+:focus-visible { outline-color:var(--focus); }
+.backpack :focus-visible { outline-color:#007a78; }
+.cover-purple:focus-visible,.fact-object:focus-visible,.tablet-object:focus-visible,.phone-object:focus-visible { outline:3px solid #f5c928; box-shadow:0 0 0 7px #4d2864; }
+.theme-control { display:flex; align-items:center; gap:10px; font-size:12px; } .theme-control select { min-height:44px; border:1px solid var(--border); border-radius:8px; padding:8px 10px; background:var(--surface); color:var(--color-text); }
+.header-controls { display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+.dialog .primary-button { color:#fff; } .primary-button { color:#fff; }
+@media(max-width:600px) { .header-controls { justify-content:space-between; width:100%; gap:10px; } }
